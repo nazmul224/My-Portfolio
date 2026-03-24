@@ -33,27 +33,3 @@ navLinks.forEach(link => {
     }
   });
 });
-
-// Scroll-triggered animations using Intersection Observer
-const observerOptions = {
-  root: null,
-  rootMargin: '-80px 0px',
-  threshold: 0.15
-};
-
-const sectionObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    } else {
-      // Remove show class when out of view to replay animation
-      entry.target.classList.remove('show');
-    }
-  });
-}, observerOptions);
-
-// Observe all sections and footer
-const sections = document.querySelectorAll('section, footer');
-sections.forEach(section => {
-  sectionObserver.observe(section);
-});
